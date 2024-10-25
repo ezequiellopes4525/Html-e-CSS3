@@ -1,0 +1,50 @@
+@charset
+@import url('http://fonts.googleleapis.com/css2?family=work+sans:ital,wght@0,100;');
+
+*{
+    font-family: work sans;
+}
+body{
+    background-image: linear-gradient(to right, #f1d8c9,#130601);
+    font-size: 1rem;
+}
+main{
+    background-color:rgb(74, 122, 155) ;
+    border-radius: 25px;
+    box-shadow: 5px 5px 15px rgba(64, 11, 80, 0.616);
+    width: 500px;
+    padding: 15px;
+    margin: auto;
+    color: hsl(180, 17%, 86%);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+
+}
+h1{
+    color: #0a0904da;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(3, 8, 34, 0.726);
+    font-family:verdana bold;
+    font-size: x-large;
+    font-display: inherit;
+    font-size: 1em;
+    font-weight: bolder;
+    font-style: italic;
+    text-decoration: underline;
+    
+}
+h2{
+    color: #125189;
+    text-align: center;
+    text-shadow: 2px 2px 1px rgba(28, 90, 90, 0.616);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    font-weight: bolder;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+p{
+    text-align: justify;
+    font:italic bolder 1em 'work sans', sans-serif;
+}

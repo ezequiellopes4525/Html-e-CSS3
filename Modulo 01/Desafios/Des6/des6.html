@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 06</title>
+</head>
+<body>
+    <div id="area" onclick="clicar()"
+    onmouseenter="Entrar()" onmouseout="Sair()">
+    Interaja........
+    <script>
+        var a=window.document.getElementById('area')
+        a.addEventListener('click', entrar)
+        a.addEventListener('mouseenter', enter)
+        a.addEventListener('mouseout',sair)
+
+        function clicar(){
+            a.innerText="Clicou"
+            a.style.background="red"
+
+        }
+        function Entrar(){
+            a.innerText='Entrou'
+
+        }
+        function Sair(){
+            a.innerText='Saiu'
+            a.style.background="green"
+        }
+    </script>
+
+    </div>
+    <h1>Tags em HTML</h1>
+    <p>Em HTML5, pdoemos inserir os elementos da lista a seguir. Passe o mouse sobre os termos para descobrir qual tag deverá utilizar em cada caso</p>
+
+    <ul area="mouse">
+        <li>Parágrafo</li>
+        <li>Titulo</li>
+        <li>Imagens</li>
+        <li>Abreviação</li>
+        <li>Códigos fontes</li>
+        <li>listas numeradas</li>
+        <li>Listas com demarcadore</li>
+    </ul>
+    
+</body>
+</html>
