@@ -18,7 +18,7 @@
             font-weight: bolder;
             padding: 8px;
         }
-        td, th {
+        th, td {
             border: 1px solid black;
             padding: 8px;
             text-align: center;
@@ -26,12 +26,34 @@
         tr.destaque {
             background-color: green;
         }
+        col.cnome {
+            background-color: green;
+        }
+        col.csexo, col.cidade {
+            background-color: yellow;
+        }
+        /*col.cgrupo {
+            background-color: red;
+        }*/
+        .amarelo {
+            background-color: yellow;
+
+        }
+        .vermelho {
+            background-color: red;
+        }
     </style>
 </head>
 <body>
     <h1>Exercicio de Tabela</h1>
 
     <table>
+        <colgroup>
+            <col class="amarelo">
+            <col class="vermelho" span="2">
+            <col class="amarelo">
+          
+        </colgroup>
         <caption>Cadastro</caption>
         <tr>
             <th scope="col">Nome</th>
@@ -53,29 +75,29 @@
             <td>Programador</td>
         </tr>
         <tr>
-            <td class="destaque">Gustavo</td>
+            <td>Gustavo</td>
             <td>M</td>
             <td>42</td>
             <td>Professor</td>
         </tr>
         <tr>
-            <td>Vendedor</td>
+            <td>Hélio</td>
             <td>M</td>
             <td>19</td>
-            <td>Jornalista</td>
+            <td>Vendedor</td>
             
         </tr>
         <tr>
-            <td>Médica</td>
+            <td>Maria</td>
             <td>F</td>
             <td>39</td>
-            <td>Jornalista</td>
+            <td>Médica</td>
         </tr>
         <tr>
-            <td>Nutricionista</td>
+            <td>Otavio</td>
             <td>M</td>
             <td>22</td>
-            <td>Jornalista</td>
+            <td>Nutricionista</td>
         </tr>
       
     </table>
