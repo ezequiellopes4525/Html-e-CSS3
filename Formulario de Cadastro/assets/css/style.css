@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Love+Light&family=Noto+Sans+JP:wght@100..900&family=Passion+One:wght@400;700;900&family=Sriracha&display=swap');
-
 * {
     padding: 0;
     margin: 0;
@@ -157,7 +156,7 @@ body {
     border: none;
     background-color: #6c63ff;
     padding: 0.62rem;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;   
 
 }
