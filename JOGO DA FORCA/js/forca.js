@@ -124,11 +124,11 @@ const palavras=[
         categoria:"COMIDA"
     },
     palavra032={
-        nome:"MACARRÃO",
+        nome:"MACARRAO",
         categoria:"COMIDA"
     },
     palavra033={
-        nome:"FEIJÃO",
+        nome:"FEIJAO",
         categoria:"COMIDA"
     },
     palavra034={
@@ -184,7 +184,7 @@ const palavras=[
         categoria:"FILME"
     },
     palavra047={
-        nome:"SÉRIE",
+        nome:"SERIE",
         categoria:"FILME"
     },
     palavra048={
@@ -233,7 +233,7 @@ function montarPalavraNaTela(){
 }
 
 function verificaLetraEscolhida(letra){
-    document.getElementById("tecla-" + letra).disable=true;
+    document.getElementById("tecla-" + letra).disabled=true;
     if (tentativas >0)
     {
         mudaStyleLetra("tecla-" + letra);
@@ -250,7 +250,11 @@ function comparalistas(letra){
     if(pos<0){
         tentativas--
         carregaImagemForca();
-        //verificar se ainda tem tentativas//imagem
+
+        if(tentativas==0){
+            abreModal("OPS!", "Não foi dessa vez... A palavra secreta era <br>" + palavraSecretaSorteada);
+        }
+       
     }
     else{
         for(i=0; i< palavraSecretaSorteada.length; i++)
@@ -296,4 +300,16 @@ function carregaImagemForca(){
         default:
     }
 }
+function abreModal(titulo, mensagem){
+    let modalTitulo=document.getElementById("exampleModalLabel");
+    modalTitulo.innerText=titulo;
 
+    let modalBody=document.getElementById("modalBody");
+    modalBody.innerHTML=mensagem;
+
+
+
+    $("#myModal").modal({
+        show:true
+    });
+}
