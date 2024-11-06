@@ -32,7 +32,7 @@ const palavras=[
         categoria:"LUGARES"
     },
     palavra008={
-        nome:"UZBEQUISTÃO",
+        nome:"UZBEQUISTAO",
         categoria:"LUGARES"
     },
     palavra009={
@@ -272,7 +272,7 @@ function comparalistas(letra){
     }
     if(vitoria==true)
     {
-        //mensagem na tela
+        abreModal("PARABNS!", "VOCÊ VENCEU...! <br>");
         tentativas=0;
     }
 }
@@ -313,3 +313,5 @@ function abreModal(titulo, mensagem){
         show:true
     });
 }
+let btntn
+
