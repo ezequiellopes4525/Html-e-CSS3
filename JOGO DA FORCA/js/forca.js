@@ -198,8 +198,50 @@ const palavras=[
     palavra050={
         nome:"COMEDIA",
         categoria:"FILME"
+    },
+    palavra051={
+        nome:"A ERA DO GELO",
+        categoria:"TV E CINEMA"
+    },
+    palavra052={
+        nome:"HOMEN ARANHA",
+        categoria:"TV E CINEMA"
+    },
+    palavra053={
+        nome:"CASA MONSTRO",
+        categoria:"TV E CINEMA"
+    },
+    palavra054={
+        nome:"TELA QUENTE",
+        categoria:"TV E CINEMA"
+    },
+    palavra055={
+        nome:"STRANGER THINGS",
+        categoria:"TV E CINEMA"
+    },
+    palavra056={
+        nome:"O REI DO GADO",
+        categoria:"TV E CINEMA"
+    },
+    palavra057={
+        nome:"MULHER MARAVILHA",
+        categoria:"TV E CINEMA"
+    },
+    palavra058={
+        nome:"BOB ESPONJA",
+        categoria:"TV E CINEMA"
+    },
+    palavra059={
+        nome:"O INCRIVEL HULK",
+        categoria:"TV E CINEMA"
+    },
+    palavra060={
+        nome:"COMEDIA",
+        categoria:"FILME"
     }
 ];
+
+let jogoAutomatico =true;
 
 criarPalavraSecreta();
 function criarPalavraSecreta(){
@@ -218,32 +260,50 @@ function montarPalavraNaTela(){
 
     const palavraTela=document.getElementById("palavra-secreta");
     palavraTela.innerHTML="";
-
+    
     for(i=0;i<palavraSecretaSorteada.length;i++){
         if (listaDinamica[i]==undefined){
-            listaDinamica[i]="&nbsp;"
-            palavraTela.innerHTML=palavraTela.innerHTML+"<div class='letras'>" +listaDinamica[i] +"</div"
+            if (palavraSecretaSorteada[i]==" ") {
+                listaDinamica[i]=" ";
+                palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letrasEspaco'>" +listaDinamica[i] +"</div"
+            }
+            else{
+                listaDinamica[i]="&nbsp;"
+                palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letras'>" + listaDinamica[i] + "</div"
+            }            
         }
         else{
-            palavraTela.innerHTML=palavraTela.innerHTML+"<div class='letras'>" +listaDinamica[i] +"</div"
+            if (palavraSecretaSorteada[i] ==" "){
+                listaDinamica[i]==" ";
+                palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letrasEspaco'>" +listaDinamica[i] +"</div"
+            }
+            else{
+                palavraTela.innerHTML=palavraTela.innerHTML+"<div class='letras'>" +listaDinamica[i] +"</div"
+            }
+            
         }
-    }
-
-
+    }   
 }
 
 function verificaLetraEscolhida(letra){
     document.getElementById("tecla-" + letra).disabled=true;
     if (tentativas >0)
     {
-        mudaStyleLetra("tecla-" + letra);
+        mudaStyleLetra("tecla-" + letra, false);
         comparalistas(letra);
         montarPalavraNaTela();
     }
 }    
-function mudaStyleLetra(tecla){
-    document.getElementById(tecla).style.background="#c71585";
-    document.getElementById(tecla).style.color="#ffffff";
+function mudaStyleLetra(tecla, condicao){
+    if(condicao==false)
+    {
+        document.getElementById(tecla).style.background="#c71585";
+        document.getElementById(tecla).style.color="#ffffff";
+    }
+    else{
+        document.getElementById(tecla).style.background="#008000";
+        document.getElementById(tecla).style.color="#ffffff";    
+    }
 }
 function comparalistas(letra){
     const pos = palavraSecretaSorteada.indexOf(letra)
@@ -257,6 +317,7 @@ function comparalistas(letra){
        
     }
     else{
+        mudaStyleLetra("tecla-" + letra,)
         for(i=0; i< palavraSecretaSorteada.length; i++)
         {
             if(palavraSecretaSorteada[i]==letra){
@@ -276,6 +337,7 @@ function comparalistas(letra){
         tentativas=0;
     }
 }
+
 function carregaImagemForca(){
     switch(tentativas){
         case 5:
@@ -313,5 +375,52 @@ function abreModal(titulo, mensagem){
         show:true
     });
 }
-let btntn
+let btnReiniciar=document.querySelector("#btnReiniciar")
+btnReiniciar.addEventListener("click", function(){
+    location.reload();
+});
 
+function listaAutomatico(){//ativa o modo manual
+    if (jogoAutomatico == true){
+        document.getElementById("jogarAutomatico").innerHTML="<i class='bx bx-play-circle'></i>"
+        jogoAutomatico=false;
+
+        document.getElementById("abreModalAddPalavra").style.display="block";
+        document.getElementById("status").style.display="Modo Manual";
+
+    }
+    else if(jogoAutomatico==false){//ativa o modo automatico
+        document.getElementById("jogarAutomatico").innerHTML="<i class='bx bx-pause-circle'></i>"
+        jogoAutomatico = true;
+
+        document.getElementById("abreModalAddPalavra").style.display="none";
+        document.getElementById("status").style.display="Modo Automático";
+
+        status
+    }
+}
+
+const modal = document.getElementById("modal-alerta");
+const btnAbreModal = document.getElementById("abreModalAddPalavra");
+btnAbreModal.onclick=function(){    
+    modal.style.display="block"
+}
+
+const btnFechaModal = document.getElementById("fechaModal");
+btnFechaModal.onclick=function(){    
+    modal.style.display="none"
+    document.getElementById("addPalavra").value="";
+    document.getElementById("addCategoria").value="";
+    
+}
+
+window.onclick=function(){  
+    if (event.target==modal){     
+        modal.style.display="none"
+        document.getElementById("addPalavra").value="";
+        document.getElementById("addCategoria").value="";    
+    }
+}
+function carregaListaAutomatica(){
+    
+}
