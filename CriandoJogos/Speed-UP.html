@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed UP</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            width: 100%;
+            height: 60%;
+            background-color: coral;
+            margin-bottom: 10px;
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 30px;
+        }
+
+        main {
+            width: 700px;
+            background-color: rgba(207, 163, 16, 0.8);
+            margin: 0 auto;
+        }
+    </style>
+
+    <script src="app.js"></script>
+    <script src="bola.js"></script>
+
+
+</head>
+
+<body>
+    <header>SPEED UP</header>
+    <header><h4 id="app">?</h4></header>
+    <main>
+
+        <canvas id="meu-canvas" width="700" height="500"></canvas>
+        <h1 id="meuCarro">Função construtora</h1>
+
+
+    </main>
+    <script>
+        var minhaBike = new bike('vermelho', 250)
+        minhaBike.acelerar()
+        document.getElementById('app').innerHTML = minhaBike.cor + ':' + minhaBike.velocidadeAtual
+    </script>
+
+    <script>
+        var canvas = document.getElementById('meu-canvas')
+        var context = canvas.getContext('2d')
+
+        /*context.beginPath();//iniciar umn novo caminho
+        context.moveTo(75,250);
+        context.lineTo(150,50);
+        context.lineTo(225,250);
+        context.lineTo(50,120);
+        context.lineTo(250,120);
+        context.lineTo(75,250);
+
+        context.lineWidth=3; //espussra da linha
+        context.strokeStyle='blue'
+        context.stroke();
+
+        //circunferencia e arcos
+        
+        context.beginPath();
+        context.arc(50,50,40,90*Math.PI/180, 270*Math.PI/180,false);
+        context.fill();
+        context.stroke();
+
+        context.beginPath();
+        context.arc(150,50,40,90*Math.PI/180, 270*Math.PI/180,true);
+        context.fill();
+        context.stroke();
+
+        context.beginPath();
+        context.arc(250,50,40,0, 2*Math.PI);
+        context.fill();
+        context.stroke();*/
+
+
+
+        var x = 0
+        var y = 200
+        var raio = 25
+        var anterior = new Date().getTime()
+        requestAnimationFrame(moverBola)
+
+        function moverBola() {
+            var agora=new Date().getTime()
+            var decorrido=agora-anterior            
+            context.clearRect(0, 
+                0, canvas.width, canvas.height);
+
+
+            context.beginPath();
+            context.arc(x, y, raio, 0, Math.PI * 2);
+            context.fill();
+
+            anterior=agora
+            var velocidade=50
+            x += velocidade*decorrido/1000
+
+            requestAnimationFrame(moverBola)
+        }
+
+        function meuCarro(cor, ano, valor){
+            this.cor = cor
+            this.ano = ano
+            this.valor = valor
+
+            this.aumentarValor = function(){
+                this.valor=200000
+            }
+
+        }
+        
+        var carro=new meuCarro('amarelo', 2022, 100000)
+        carro.aumentarValor()
+
+        //document.getElementById('meuCarro').innerHTML=carro.valor
+
+        var Moto = {
+            cor:'Azul', 
+            ano:2022,
+            velocidade: 100,
+
+            acelerar:function(){
+                this.velocidade=380
+            }
+
+
+        }
+        Moto.acelerar()
+        document.getElementById('meuCarro').innerHTML=Moto.velocidade
+
+
+
+    </script>
+</body>
+
+</html>
